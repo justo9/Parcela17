@@ -629,7 +629,7 @@
   </footer>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const hamburger = document.getElementById('hamburger');
   const navMenu   = document.getElementById('nav-menu');
 
@@ -645,4 +645,15 @@
     document.querySelectorAll('.nav-menu a').forEach(a => {
       a.classList.toggle('active', a.dataset.page === pageId);
     });
-    hamburger.c
+    hamburger.classList.remove('open');
+    navMenu.classList.remove('open');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.addEventListener('click', e => {
+    const el = e.target.closest('[data-page]');
+    if (!el) return;
+    e.preventDefault();
+    goToPage(el.dataset.page);
+  });
+</script>
