@@ -5,9 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MANTECONNI – Jazz Fusion Funk Rock</title>
   <meta name="description" content="Manteconni, banda de Jazz Fusion Funk Rock de Jaén. Pablo Cortés, Dani Cortés, David Zafra, Juanillo Morales y Justo González." />
-  <link rel="icon" type="image/png" href="favicon.png" sizes="48x48" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="favicon.png" sizes="600x600" />
   <link rel="apple-touch-icon" href="logo.png" />
-  <meta property="og:image" content="logo.png" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://manteconni.es/" />
+  <meta property="og:site_name"   content="MANTECONNI" />
+  <meta property="og:locale"      content="es_ES" />
+  <meta property="og:title"       content="MANTECONNI – Jazz Fusion Funk Rock" />
+  <meta property="og:description" content="Manteconni, banda de Jazz Fusion Funk Rock de Jaén. Pablo Cortés, Dani Cortés, David Zafra, Juanillo Morales y Justo González." />
+  <meta property="og:image"       content="https://manteconni.es/logo.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"   content="MANTECONNI – Logo de la banda" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="MANTECONNI – Jazz Fusion Funk Rock" />
+  <meta name="twitter:description" content="Manteconni, banda de Jazz Fusion Funk Rock de Jaén. Pablo Cortés, Dani Cortés, David Zafra, Juanillo Morales y Justo González." />
+  <meta name="twitter:image"       content="https://manteconni.es/logo.png" />
+  <meta name="twitter:image:alt"   content="MANTECONNI – Logo de la banda" />
+
+  <!-- Datos estructurados para Google (MusicGroup) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "MANTECONNI",
+    "url": "https://manteconni.es",
+    "logo": "https://manteconni.es/logo.png",
+    "description": "Manteconni, banda de Jazz Fusion Funk Rock de Jaén. Pablo Cortés, Dani Cortés, David Zafra, Juanillo Morales y Justo González.",
+    "genre": ["Jazz Fusion", "Funk", "Rock"],
+    "foundingLocation": { "@type": "Place", "name": "Jaén, España" },
+    "sameAs": [
+      "https://instagram.com/manteconni",
+      "https://www.youtube.com/channel/UCWok-laiqPa39-9iMuxpwaA",
+      "https://open.spotify.com/playlist/4K39qbqfUlTrpUoVGo6ecD"
+    ],
+    "member": [
+      {"@type": "OrganizationRole", "member": {"@type": "Person", "name": "Dani Cortés"},     "roleName": "Guitarra eléctrica"},
+      {"@type": "OrganizationRole", "member": {"@type": "Person", "name": "Justo González"},  "roleName": "Vientos"},
+      {"@type": "OrganizationRole", "member": {"@type": "Person", "name": "David Zafra"},     "roleName": "Bajo eléctrico"},
+      {"@type": "OrganizationRole", "member": {"@type": "Person", "name": "Pablo Cortés"},    "roleName": "Teclado"},
+      {"@type": "OrganizationRole", "member": {"@type": "Person", "name": "Juanillo Morales"},"roleName": "Batería"}
+    ]
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -146,15 +191,25 @@
 
     .hero-section {
       min-height:calc(100vh - 80px);
-      display:flex; align-items:flex-start; justify-content:center;
-      padding:3rem 2rem 2rem;
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:3rem; align-items:center;
+      padding:2rem 4rem;
+      max-width:1400px; margin:0 auto; width:100%;
     }
     .hero-content {
       display:flex; flex-direction:column; align-items:center;
-      text-align:center; max-width:680px;
+      text-align:center;
       animation:fadeUp .9s ease both;
       gap:.4rem;
     }
+    .spotify-wrap {
+      height:clamp(380px, calc(100vh - 180px), 680px);
+      border-radius:12px; overflow:hidden;
+      border:1px solid rgba(30,215,96,.25);
+      box-shadow:0 8px 40px rgba(0,0,0,.5);
+      animation:fadeUp .9s ease .2s both;
+    }
+    .spotify-wrap iframe { width:100%; height:100%; border:none; display:block; }
     .hero-title-img {
       width:clamp(260px,52vw,500px); max-width:100%; display:block; margin:0 auto;
     }
@@ -429,9 +484,10 @@
 
     /* ===== MOBILE ===== */
     @media (max-width:768px) {
-      .hero-section { min-height:auto; padding:1.5rem 1.5rem 1rem; align-items:flex-start; }
+      .hero-section { grid-template-columns:1fr; min-height:auto; padding:1.5rem 1.5rem 1rem; }
       .hero-content { gap:.3rem; }
       .hero-title-img { width:90vw; }
+      .spotify-wrap { height:380px; }
       .historia-grid, .contact-grid { grid-template-columns:1fr; gap:2rem; }
       .miembros-grid { grid-template-columns:1fr 1fr; }
       .page-inner { padding:6rem 1.5rem 3rem; }
@@ -451,6 +507,9 @@
     </a>
     <a href="https://www.youtube.com/channel/UCWok-laiqPa39-9iMuxpwaA" target="_blank" class="nav-social-link" title="YouTube">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+    </a>
+    <a href="https://open.spotify.com/playlist/4K39qbqfUlTrpUoVGo6ecD" target="_blank" class="nav-social-link" title="Spotify">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
     </a>
   </div>
   <div class="brand" id="logo-home" data-page="inicio">
@@ -478,6 +537,15 @@
       <p class="tagline">Jazz · Funk · Rock</p>
       <p>"Made in Jaén"</p>
       <a href="#" class="btn-primary" data-page="conciertos">Próximos conciertos</a>
+    </div>
+    <div class="spotify-wrap">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/4K39qbqfUlTrpUoVGo6ecD?utm_source=generator&theme=0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        title="MANTECONNI – Escúchanos en Spotify">
+      </iframe>
     </div>
   </div>
 
