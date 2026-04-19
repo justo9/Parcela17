@@ -510,16 +510,18 @@
 
     /* ===== INSTAGRAM FEED ===== */
     .instagram-section {
-      padding:3rem 2.5rem 2rem;
+      padding:3.5rem 2.5rem 3rem;
       max-width:960px; margin:0 auto;
+      border-top:1px solid rgba(255,255,255,.06);
     }
     .insta-header {
-      display:flex; align-items:center; gap:1rem; margin-bottom:1.8rem;
+      display:flex; align-items:center; gap:1rem; margin-bottom:2rem;
     }
     .insta-icon-wrap {
-      width:44px; height:44px; border-radius:12px; flex-shrink:0;
+      width:46px; height:46px; border-radius:12px; flex-shrink:0;
       background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);
       display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 16px rgba(214,36,159,.35);
     }
     .insta-icon-wrap svg { width:24px; height:24px; fill:#fff; }
     .insta-title {
@@ -531,6 +533,12 @@
       text-decoration:none; letter-spacing:1px;
     }
     .insta-handle:hover { text-decoration:underline; }
+    .insta-widget-wrap {
+      border-radius:12px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.07);
+      background:rgba(255,255,255,.02);
+      padding:.75rem;
+    }
 
     /* ===== MOBILE ===== */
     @media (max-width:768px) {
@@ -645,7 +653,9 @@
         <a href="https://instagram.com/manteconni" target="_blank" class="insta-handle">@manteconni</a>
       </div>
     </div>
-    <behold-widget feed-id="isvsMxL20QvXwVsq4ShM"></behold-widget>
+    <div class="insta-widget-wrap">
+      <behold-widget feed-id="isvsMxL20QvXwVsq4ShM"></behold-widget>
+    </div>
   </div>
 
   <footer>
